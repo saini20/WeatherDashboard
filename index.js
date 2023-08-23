@@ -176,19 +176,13 @@ app.get("/logout", (req, res) => {
   });
 });
 
-function isAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next(); // User is authenticated, proceed to the next middleware or route handler
-  }
-  // User is not authenticated, redirect to the sign-in page
-  res.redirect("/signin");
-}
 
 
-app.post("/homepage",isAuthenticated, (req, res) => {
+
+app.post("/homepage", (req, res) => {
   const query = req.body.searchPlace;
   const weatherAPI = "https://api.weatherapi.com/v1/forecast.json?key="+process.env.WEATHER_API_KEY+"&q="+query+"&days=4&hour=2";
-  https.get(weatherAPI, async (response) => {
+  https.get(weatherAPI, (response) => {
     let weatherData = '';
 
     response.on("data", (chunk) => {
