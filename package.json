@@ -2,7 +2,7 @@
   "name": "weatherdashboard",
   "version": "1.0.0",
   "description": "this website gives real time information of weather and other factors of a location",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
