@@ -1,0 +1,53 @@
+*{
+    font-family: 'Playfair Display', serif;
+}
+.box{
+    width: 100%;
+    height: 100vh;
+    background-color: #cccccc;
+    background-size: cover;
+    position: relative;
+}
+.form-box{
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 50px 60px 70px;
+    text-align: center;
+    border-radius: 5px;
+}
+.form-box h1{
+    font-weight: bold;
+    font-size: 3rem;
+}
+.glassy-div {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('background.jpg');
+    background-blend-mode: overlay;
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);   
+  }
+
+  @media (max-width: 768px) {
+    .form-box {
+        width: 80%;
+    }
+
+    .form-box h1 {
+        font-size: 2.5rem; 
+    }
+}
+
+@media (max-width: 576px) {
+    .form-box {
+        width: 90%; 
+    }
+
+    .form-box h1 {
+        font-size: 2rem; 
+    }
+}

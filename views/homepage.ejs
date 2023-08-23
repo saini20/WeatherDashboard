@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkyView</title>
+    <link rel="icon" type="image/x-icon" href="asset/logo_1.png">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/homepage.css" />
+  </head>
+  <body>
+    <header class="p-3 text-bg-dark">
+      <div>
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start nav"
+        >
+          <ul
+            class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 "
+          > 
+          
+            <img src="asset/logo_1.png" alt="logo" width="40" height="32" />
+            <li class="nav-item"><span class="nav-link px-2 py-1 text-white">SkyView</span>
+          </li>
+          </ul>
+          <form
+            class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex align-items-center"
+            role="search"
+            action="/homepage"
+            method="post"
+          >
+            <input
+              type="search"
+              class="form-control form-control-dark text-bg-light"
+              name="searchPlace"
+              placeholder="Search for places..."
+              aria-label="Search"
+              autocomplete="off"
+            />
+            <button type="submit" class="btn btn-light me-2 mx-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-search"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                />
+              </svg>
+            </button>
+            <a class="btn btn-warning btn-lg mx-1 p-1" href="/logout" role="button">LogOut</a>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="grid-container" >
+      <div class="grid-item glassy-div weatherData" style="padding: 15px">
+        <div class="place flex-box glassy-div box-div">
+          <h3><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg> <%=place%></h3>
+        </div>
+        <div class="dayTime flex-box glassy-div box-div">
+          <h2><%=date%></h2>
+          <h2><%=day%></h2>
+          <h2 id="clock"></h2>
+          <div id="clock"></div>
+        </div>
+        <div class="temperature flex-box glassy-div box-div">
+          <h1><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-thermometer-sun" viewBox="0 0 16 16">
+            <path d="M5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585A1.5 1.5 0 0 1 5 12.5z"/>
+            <path d="M1 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM3.5 1A1.5 1.5 0 0 0 2 2.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0L5 10.486V2.5A1.5 1.5 0 0 0 3.5 1zm5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5zm4.243 1.757a.5.5 0 0 1 0 .707l-.707.708a.5.5 0 1 1-.708-.708l.708-.707a.5.5 0 0 1 .707 0zM8 5.5a.5.5 0 0 1 .5-.5 3 3 0 1 1 0 6 .5.5 0 0 1 0-1 2 2 0 0 0 0-4 .5.5 0 0 1-.5-.5zM12.5 8a.5.5 0 0 1 .5-.5h1a.5.5 0 1 1 0 1h-1a.5.5 0 0 1-.5-.5zm-1.172 2.828a.5.5 0 0 1 .708 0l.707.708a.5.5 0 0 1-.707.707l-.708-.707a.5.5 0 0 1 0-.708zM8.5 12a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5z"/>
+          </svg> <%=temp%> &deg;C</h1>
+        </div>
+        <div class="description flex-box glassy-div box-div">
+          <h3>
+            <img src=<%=icon%> alt="weather-icon"> <%=description%>
+          </h3>
+        </div>
+      </div>
+      <div class="grid-item glassy-div weatherForcast">
+        <div class="forcastData">
+        <%  for(var i=0; i<forcastItems.length; i++){ %>
+            <div class="card box-div glassy-div ">
+              <div class="card-body ">
+                <% const originalDate = forcastItems[i][0]; %>
+                <% const parts = originalDate.split("-"); %>
+                <% const formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`; %>
+                <h4 class="card-title"><%= formattedDate %></h4>
+                <h4 class="card-text"><%= forcastItems[i][1] %></h4>
+                <h4 class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-thermometer-low" viewBox="0 0 16 16">
+                  <path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V9.5a.5.5 0 0 1 1 0v1.585a1.5 1.5 0 0 1 1 1.415z"/>
+                  <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/>
+                </svg> <%= forcastItems[i][2] %><br><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-thermometer-high" viewBox="0 0 16 16">
+                  <path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585a1.5 1.5 0 0 1 1 1.415z"/>
+                  <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/>
+                </svg> <%= forcastItems[i][3] %></h4>
+                <h4 class="card-text"><img src=<%= forcastItems[i][4] %> alt="weather-icon"> &nbsp;&nbsp;<%= forcastItems[i][5] %></h4>
+              </div>
+            </div>  
+        <% } %>  
+      </div>                    
+      </div>
+      <div class="grid-item glassy-div weatherHighlights">
+        <h1
+          style="
+            text-align: center;
+            padding: 20px;
+            margin-top: 10px;
+            font-weight: bold;
+          "
+        >
+          Today's highlights
+        </h1>
+        <div class="highlightsData">
+          <div class="card box-div glassy-div" id="uvIndex">
+            <div class="card-body ">
+              <h3 class="card-text">UV Index</h3>
+              <h5 class="card-text">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-brightness-high-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+                /></svg
+              >&nbsp;&nbsp;<%=uvIndex%>
+            </h5>
+            </div>
+          </div>  
+          <div class="card box-div glassy-div">
+            <div class="card-body ">
+              <h3 class="card-text">Wind Status</h3>
+              <h5 class="card-text">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-wind"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"
+                  /></svg
+                >&nbsp;&nbsp;<%=windStatus%> km/h
+              </h5>
+            </div>
+          </div>   
+          <div class="card box-div glassy-div" id="sunRiseSet">
+            <div class="card-body ">
+              <h3 class="card-text">Sunrise & Sunset</h3>
+              <h5 class="card-text">
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-sunrise-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M7.646 1.146a.5.5 0 0 1 .708 0l1.5 1.5a.5.5 0 0 1-.708.708L8.5 2.707V4.5a.5.5 0 0 1-1 0V2.707l-.646.647a.5.5 0 1 1-.708-.708l1.5-1.5zM2.343 4.343a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM11.709 11.5a4 4 0 1 0-7.418 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"
+                /></svg
+              >&nbsp;<%=sunrise%>
+              <br>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-sunset-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M7.646 4.854a.5.5 0 0 0 .708 0l1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V1.5a.5.5 0 0 0-1 0v1.793l-.646-.647a.5.5 0 1 0-.708.708l1.5 1.5zm-5.303-.51a.5.5 0 0 1 .707 0l1.414 1.413a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .706l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM11.709 11.5a4 4 0 1 0-7.418 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"
+                /></svg
+              >&nbsp;<%=sunset%>
+              </h5>
+            </div>
+          </div>
+          <div class="card box-div glassy-div">
+            <div class="card-body ">
+              <h3 class="card-title">Humidity</h3>
+              <h5 class="card-text">
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-droplet-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z"
+                /></svg
+              >&nbsp;&nbsp;<%=humidity%>%
+              </h5>
+            </div>
+          </div>       
+          <div class="card box-div glassy-div">
+            <div class="card-body ">
+              <h3 class="card-title">Visibility</h3>
+              <h5 class="card-text">
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-eye-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                <path
+                  d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"
+                /></svg
+              >&nbsp;&nbsp;<%=visibility%> km
+              </h5>
+            </div>
+          </div> 
+          <div class="card box-div glassy-div">
+            <div class="card-body ">
+              <h3 class="card-title">Cloud Coverage</h3>
+              <h5 class="card-text">
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-cloud-sun-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11.473 11a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5h-.027z"
+                />
+                <path
+                  d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0v-1zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708l.707-.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708l-.708-.707zm1.734 3.374a2 2 0 1 1 3.296 2.198c.199.281.372.582.516.898a3 3 0 1 0-4.84-3.225c.352.011.696.055 1.028.129zm4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377zM14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"
+                /></svg
+              >&nbsp;&nbsp;<%=cloudCoverage%>%
+              </h5>
+            </div>
+          </div>           
+        </div>
+      </div>
+    </div>
+  
+
+    <script type="text/javascript">
+      
+      function updateClock() {
+        const clockElement = document.getElementById("clock");
+        const date = new Date();
+        const timeString = date.toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        });
+        clockElement.textContent = timeString;
+      }    
+      setInterval(updateClock, 1000); 
+
+      
+    </script>
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
